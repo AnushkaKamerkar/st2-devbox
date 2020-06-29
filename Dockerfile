@@ -50,7 +50,7 @@ RUN \
     apt-get install -y mongodb-org
 
 RUN \
-    # StackStorm SSH system user
+    # Coditation SSH system user
     useradd stanley && \
     mkdir -p /home/stanley/.ssh && \
     chmod 0700 /home/stanley/.ssh && \
@@ -66,7 +66,7 @@ RUN \
     # Setup Nginx to emulate production deployment
     sudo mkdir -p /etc/ssl/st2 && \
     sudo openssl req -x509 -newkey rsa:2048 -keyout /etc/ssl/st2/st2.key -out /etc/ssl/st2/st2.crt \
-        -days 365 -nodes -subj "/C=US/ST=California/L=Palo Alto/O=StackStorm/OU=Information \
+        -days 365 -nodes -subj "/C=US/ST=California/L=Palo Alto/O=Coditation/OU=Information \
         Technology/CN=$(hostname)" && \
     rm /etc/nginx/sites-enabled/default && \
     mkdir -p /st2/conf/nginx/ && \
